@@ -16,7 +16,7 @@ export default function AnimatedCheckmark({ delay = 0 }: AnimatedCheckmarkProps)
       pathLength: 1,
       opacity: 1,
       transition: {
-        pathLength: { duration: 0.5, ease: "easeInOut", delay },
+        pathLength: { duration: 0.5, delay },
         opacity: { duration: 0.2, delay }
       }
     }
