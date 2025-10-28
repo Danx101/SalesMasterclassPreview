@@ -73,7 +73,7 @@ export default function CircularGallery() {
 
               {/* Quote */}
               <blockquote className="text-lg sm:text-xl md:text-2xl text-gray-800 text-center mb-8 italic">
-                "{testimonials[currentIndex].quote}"
+                &ldquo;{testimonials[currentIndex].quote}&rdquo;
               </blockquote>
 
               {/* Author */}
