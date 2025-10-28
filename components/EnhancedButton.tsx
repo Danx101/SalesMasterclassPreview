@@ -1,12 +1,16 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { ButtonHTMLAttributes, ReactNode } from 'react';
+import { ReactNode } from 'react';
 
-interface EnhancedButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+interface EnhancedButtonProps {
   variant?: 'primary' | 'secondary' | 'outline';
   size?: 'sm' | 'md' | 'lg';
   children: ReactNode;
+  className?: string;
+  onClick?: () => void;
+  type?: 'button' | 'submit' | 'reset';
+  disabled?: boolean;
 }
 
 export default function EnhancedButton({
@@ -14,7 +18,9 @@ export default function EnhancedButton({
   size = 'md',
   children,
   className = '',
-  ...props
+  onClick,
+  type = 'button',
+  disabled = false,
 }: EnhancedButtonProps) {
   const baseStyles = 'font-semibold rounded-lg inline-flex items-center justify-center relative overflow-hidden group';
 
@@ -36,7 +42,9 @@ export default function EnhancedButton({
       whileHover={{ scale: 1.05 }}
       whileTap={{ scale: 0.95 }}
       transition={{ type: "spring", stiffness: 400, damping: 17 }}
-      {...props}
+      onClick={onClick}
+      type={type}
+      disabled={disabled}
     >
       {/* Glow Effect */}
       {variant === 'primary' && (
